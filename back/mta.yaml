@@ -54,3 +54,8 @@ resources:
           credential-types:
             - "binding-secret"
             - "x509"
+  - name: back-des
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite

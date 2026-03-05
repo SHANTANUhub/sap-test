@@ -1,6 +1,112 @@
 <mvc:View controllerName="project1.controller.View1"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-    </Page>
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <IconTabBar id="idIconTabBar" class="sapUiResponsiveContentPadding">
+        <items>
+            <IconTabFilter id="ordersTab" text="Orders" icon="sap-icon://sales-order"
+                count="{/Orders/$count}">
+                <Table id="ordersTable" items="{/Orders}" growing="true"
+                    growingThreshold="10">
+                    <headerToolbar>
+                        <OverflowToolbar id="ordersToolbar">
+                            <Title id="ordersTitle" text="Orders (pro4)" level="H2" />
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column id="colOrderNo">
+                            <header>
+                                <Text id="txtOrderNo" text="Order No" />
+                            </header>
+                        </Column>
+                        <Column id="colAmount">
+                            <header>
+                                <Text id="txtAmount" text="Amount" />
+                            </header>
+                        </Column>
+                        <Column id="colCurrency">
+                            <header>
+                                <Text id="txtCurrency" text="Currency" />
+                            </header>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem id="ordersItem">
+                            <cells>
+                                <Text id="cellOrderNo" text="{OrderNo}" />
+                                <ObjectNumber id="cellAmount" number="{Amount}" />
+                                <Text id="cellCurrency" text="{Currency}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </IconTabFilter>
+            <IconTabFilter id="employeesTab" text="Employees" icon="sap-icon://employee">
+                <Table id="employeesTable" items="{EMPLOYEES>/Employees}" growing="true"
+                    growingThreshold="10">
+                    <headerToolbar>
+                        <OverflowToolbar id="employeesToolbar">
+                            <Title id="employeesTitle" text="Employees (pro5)" level="H2" />
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column id="colName">
+                            <header>
+                                <Text id="txtName" text="Name" />
+                            </header>
+                        </Column>
+                        <Column id="colRole">
+                            <header>
+                                <Text id="txtRole" text="Role" />
+                            </header>
+                        </Column>
+                        <Column id="colEmail">
+                            <header>
+                                <Text id="txtEmail" text="Email" />
+                            </header>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem id="employeesItem">
+                            <cells>
+                                <Text id="cellName" text="{EMPLOYEES>Name}" />
+                                <Text id="cellRole" text="{EMPLOYEES>Role}" />
+                                <Text id="cellEmail" text="{EMPLOYEES>Email}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </IconTabFilter>
+            <IconTabFilter id="bpaTab" text="Trigger BPA" icon="sap-icon://process">
+                <VBox id="bpaBox" class="sapUiSmallMargin">
+                    <Label id="lblEmployeeName" text="Employee Name" />
+                    <Input id="employeeNameInput" placeholder="e.g. John Doe" width="300px" />
+                    <Label id="lblDepartment" text="Department" class="sapUiSmallMarginTop" />
+                    <Select id="departmentSelect" width="300px" class="sapUiSmallMarginTop">
+                        <core:Item key="MANAGEMENT" text="MANAGEMENT" />
+                        <core:Item key="SALES" text="SALES" />
+                        <core:Item key="AI" text="AI" />
+                    </Select>
+                    <Label id="lblItemName" text="Item Name" class="sapUiSmallMarginTop" />
+                    <Input id="itemNameInput" placeholder="e.g. Laptop" width="300px" />
+                    <Label id="lblQuantity" text="Quantity" class="sapUiSmallMarginTop" />
+                    <Input id="quantityInput" placeholder="e.g. 2" width="300px"
+                        type="Number" />
+                    <Label id="lblAmount" text="Amount" class="sapUiSmallMarginTop" />
+                    <Input id="amountInput" placeholder="e.g. 1500" width="300px"
+                        type="Number" />
+                    <Label id="lblJustification" text="Justification" class="sapUiSmallMarginTop" />
+                    <Input id="justificationInput" placeholder="e.g. Required for new project" width="300px" />
+                    <HBox id="bpaButtonBox" class="sapUiSmallMarginTop">
+                        <Button id="btnTriggerBPA" text="Trigger Workflow" type="Emphasized"
+                            icon="sap-icon://initiative" press=".onTriggerWorkflow" />
+                        <Button id="btnClearForm" text="Clear Form" icon="sap-icon://clear-all" 
+                            press=".onClearForm" class="sapUiSmallMarginBegin" />
+                    </HBox>
+                    <MessageStrip id="workflowResultStrip" text="" class="sapUiSmallMarginTop" 
+                        visible="false" />
+                </VBox>
+            </IconTabFilter>
+        </items>
+    </IconTabBar>
 </mvc:View>
