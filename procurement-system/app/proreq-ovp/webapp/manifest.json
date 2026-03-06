@@ -1,0 +1,169 @@
+{
+  "_version": "1.82.0",
+  "sap.app": {
+    "id": "proreqovp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:ovp",
+      "version": "1.20.3",
+      "toolsId": "86eda542-ba28-45bb-84ea-7d3ead2ad7bb"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/catalog/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.01"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.145.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {},
+        "sap.ovp": {},
+        "sap.ui.rta": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "proreqovp.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [],
+      "targets": {}
+    }
+  },
+  "sap.ovp": {
+    "globalFilterEntitySet": "ProcurementRequests",
+    "containerLayout": "resizable",
+    "enableLiveFilter": false,
+    "considerAnalyticalParameters": false,
+    "cards": {
+      "card01": {
+        "template": "sap.ovp.cards.table",
+        "settings": {
+          "title": "Procurement Requests",
+          "subTitle": "Current Request Status",
+          "entitySet": "ProcurementRequests",
+          "defaultSpan": {
+            "showOnlyHeader": false,
+            "rows": 5,
+            "cols": 2
+          }
+        }
+      },
+      "card02": {
+        "template": "sap.ovp.cards.table",
+        "settings": {
+          "title": "Request Items",
+          "subTitle": "Line Item Details",
+          "entitySet": "RequestItems",
+          "defaultSpan": {
+            "showOnlyHeader": false,
+            "rows": 4,
+            "cols": 2
+          }
+        }
+      },
+      "card03": {
+        "template": "sap.ovp.cards.list",
+        "settings": {
+          "title": "Departments",
+          "subTitle": "Organization Overview",
+          "entitySet": "Departments",
+          "listType": "condensed",
+          "sortBy": "name",
+          "sortOrder": "ascending",
+          "defaultSpan": {
+            "showOnlyHeader": false,
+            "rows": 3,
+            "cols": 1
+          }
+        }
+      },
+      "card04": {
+        "template": "sap.ovp.cards.list",
+        "settings": {
+          "title": "Employees",
+          "subTitle": "Staff Directory",
+          "entitySet": "Employees",
+          "listType": "condensed",
+          "sortBy": "name",
+          "sortOrder": "ascending",
+          "defaultSpan": {
+            "showOnlyHeader": false,
+            "rows": 3,
+            "cols": 1
+          }
+        }
+      }
+    },
+    "globalFilterControlType": "MacroFilterBar"
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "analytical"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

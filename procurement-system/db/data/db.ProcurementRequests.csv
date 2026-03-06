@@ -1,0 +1,4 @@
+ID,employee_ID,department_ID,status,priority,totalAmount
+1,1,1,Pending,High,75000
+2,2,2,Approved,Medium,12000
+3,3,3,Rejected,Low,5000

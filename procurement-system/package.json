@@ -1,0 +1,35 @@
+{
+  "name": "procurement-system",
+  "version": "1.0.0",
+  "dependencies": {
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9",
+    "@sap/xssec": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9",
+    "cds-plugin-ui5": "^0.13.0"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-procurement-ui": "cds watch --open procurementui/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-product-list": "cds watch --open productlist/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-proreq-ovp": "cds watch --open proreqovp/index.html?sap-ui-xx-viewCache=false --livereload false"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "[production]": {
+        "auth": "xsuaa"
+      }
+    }
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/product-list",
+    "app/proreq-ovp"
+  ]
+}

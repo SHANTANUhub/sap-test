@@ -1,0 +1,5 @@
+ID,name,category,price,stock,supplier_ID
+1,Laptop,Electronics,75000,20,1
+2,Printer,Electronics,12000,15,1
+3,Office Chair,Furniture,5000,50,2
+4,Desk,Furniture,9000,25,2
